@@ -31,10 +31,10 @@ public class MessageService {
     }
     
     public Message save(Message m){
-        if (m.getId()==null){
+        if (m.getIdMessage()==null){
             return messageRepository.save(m);
         } else{
-            Optional<Message> messaux = messageRepository.getMessage(m.getId());
+            Optional<Message> messaux = messageRepository.getMessage(m.getIdMessage());
             if (messaux.isEmpty()){
                 return messageRepository.save(m);
             } else{

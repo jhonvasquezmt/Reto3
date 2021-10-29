@@ -42,7 +42,7 @@ public class Cabin implements Serializable {
     private Category category;
   
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
-    @JsonIgnoreProperties("cabin")
+    @JsonIgnoreProperties({"client","cabin"})
     public List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")

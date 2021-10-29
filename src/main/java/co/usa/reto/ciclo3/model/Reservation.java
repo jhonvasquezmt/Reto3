@@ -15,6 +15,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,8 +38,8 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     
-    date String startDate;
-    date String devolutionDate;
+    private String startDate;
+    private String devolutionDate;
     private String status;
     
     @ManyToOne
@@ -43,29 +47,21 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservations")
     private Cabin cabin;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "Mensajes ")
-    @JsonIgnoreProperties("reservations")
-    public List<Message> messages;
-
     @ManyToOne
     @JoinColumn(name="Cliente")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
     
     @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "reservation")
     @JsonIgnoreProperties("reservation")
     private Score score;
-    
-    simpleDateFormat formato = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-    starDate = formato.parse(starDate);
-    devolutionDate = formato.parse(devolutionDate);
 
-    public Integer getId() {
-        return id;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public String getStartDate() {
@@ -84,20 +80,12 @@ public class Reservation implements Serializable {
         this.devolutionDate = devolutionDate;
     }
 
-    public String getDate() {
-        return date;
+    public String getStatus() {
+        return status;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Cabin getCabin() {
@@ -108,6 +96,14 @@ public class Reservation implements Serializable {
         this.cabin = cabin;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     public Score getScore() {
         return score;
     }
@@ -116,3 +112,4 @@ public class Reservation implements Serializable {
         this.score = score;
     }
 }
+

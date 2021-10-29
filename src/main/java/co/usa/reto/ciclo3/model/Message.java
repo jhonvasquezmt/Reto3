@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="message")
+
 public class Message implements Serializable {
     
     @Id
@@ -35,19 +38,13 @@ public class Message implements Serializable {
     @JoinColumn(name="Cliente")
     @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
-    
-    @ManyToOne
-    @JoinColumn(name="Reservaciones")
-    @JsonIgnoreProperties({"messages","reservations"})
-    private Message ;
-    
 
-    public Integer getId() {
-        return id;
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
@@ -58,19 +55,19 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public Cabin getCabin() {
         return cabin;
     }
 
     public void setCabin(Cabin cabin) {
         this.cabin = cabin;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
