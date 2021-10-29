@@ -32,14 +32,15 @@ public class Cabin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private String brand;
     private Integer rooms;
+    private String description;
     @ManyToOne
     @JoinColumn(name="category")
     @JsonIgnoreProperties("cabins")
     private Category category;
-    private String name;
-    private String description;
+  
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
     @JsonIgnoreProperties("cabin")
     public List<Message> messages;

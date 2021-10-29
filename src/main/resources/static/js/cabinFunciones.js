@@ -11,7 +11,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"",
+            url:"http://129.151.122.220:8080/api/Cabin/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -27,7 +27,7 @@ function getCabin (){
     $.ajax({
 
         dataType: "json",
-        url:"",
+        url:"http://129.151.122.220:8080/api/Cabin/all",
         type:"GET",
         success: function(response){
             
@@ -61,7 +61,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Cabin/",
             type:"DELETE",
             success: function(response){
                 console.log(response);
@@ -77,7 +77,7 @@ function getCabinId (idItem){
     $.ajax({
 
         dataType: "json",
-        url:"/"+idItem,
+        url:"http://129.151.122.220:8080/api/Cabin/"+idItem,
         type:"GET",
         success: function(response){
             
@@ -111,7 +111,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Cabin/",
             type:"PUT",
             success: function(response){
                 console.log(response);

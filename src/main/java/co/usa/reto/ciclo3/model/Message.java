@@ -23,17 +23,24 @@ public class Message implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
     private String messageText;
+    
+    @ManyToOne
+    @JoinColumn(name="Cabaña")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Cabin cabin;
 
     @ManyToOne
     @JoinColumn(name="Cliente")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
+    
     @ManyToOne
-    @JoinColumn(name="Cabaña")
-    @JsonIgnoreProperties("messages")
-    private Cabin cabin;
+    @JoinColumn(name="Reservaciones")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Message ;
+    
 
     public Integer getId() {
         return id;

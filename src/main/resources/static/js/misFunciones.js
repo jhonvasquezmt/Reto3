@@ -11,7 +11,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"https://g61be72711c796d-db202109261839.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+            url:"http://129.151.122.220:8080/api/Client/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -27,7 +27,7 @@ function getClient (){
     $.ajax({
 
         dataType: "json",
-        url:"https://g61be72711c796d-db202109261839.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+        url:"http://129.151.122.220:8080/api/Client/all",
         type:"GET",
         success: function(response){
             
@@ -60,7 +60,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"https://g61be72711c796d-db202109261839.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+            url:"http://129.151.122.220:8080/api/Client/",
             type:"DELETE",
             success: function(response){
                 console.log(response);
@@ -76,7 +76,7 @@ function getClientId (idItem){
     $.ajax({
 
         dataType: "json",
-        url:"https://g61be72711c796d-db202109261839.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client/"+idItem,
+        url:"http://129.151.122.220:8080/api/Client/"+idItem,
         type:"GET",
         success: function(response){
             
@@ -109,7 +109,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"https://g61be72711c796d-db202109261839.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+            url:"http://129.151.122.220:8080/api/Client/",
             type:"PUT",
             success: function(response){
                 console.log(response);

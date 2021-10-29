@@ -11,7 +11,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"",
+            url:"http://129.151.122.220:8080/api/Category/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -27,7 +27,7 @@ function getCate (){
     $.ajax({
 
         dataType: "json",
-        url:"",
+        url:"http://129.151.122.220:8080/api/Category/all",
         type:"GET",
         success: function(response){
             
@@ -59,7 +59,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Category/",
             type:"DELETE",
             success: function(response){
                 console.log(response);
@@ -75,7 +75,7 @@ function getCateId (idItem){
     $.ajax({
 
         dataType: "json",
-        url:"/"+idItem,
+        url:"http://129.151.122.220:8080/api/Category/"+idItem,
         type:"GET",
         success: function(response){
             
@@ -104,7 +104,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Category/",
             type:"PUT",
             success: function(response){
                 console.log(response);

@@ -11,7 +11,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"",
+            url:"http://129.151.122.220:8080/api/Score/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -27,7 +27,7 @@ function getSc (){
     $.ajax({
 
         dataType: "json",
-        url:"",
+        url:"http://129.151.122.220:8080/api/Score/all",
         type:"GET",
         success: function(response){
             
@@ -60,7 +60,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Score/",
             type:"DELETE",
             success: function(response){
                 console.log(response);
@@ -76,7 +76,7 @@ function getScId (idItem){
     $.ajax({
 
         dataType: "json",
-        url:"/"+idItem,
+        url:"http://129.151.122.220:8080/api/Score/"+idItem,
         type:"GET",
         success: function(response){
             
@@ -110,7 +110,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Score/",
             type:"PUT",
             success: function(response){
                 console.log(response);

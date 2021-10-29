@@ -12,7 +12,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"",
+            url:"http://129.151.122.220:8080/api/Reservation/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -28,7 +28,7 @@ function getRes (){
     $.ajax({
 
         dataType: "json",
-        url:"",
+        url:"http://129.151.122.220:8080/api/Reservation/all",
         type:"GET",
         success: function(response){
             
@@ -63,7 +63,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Reservation/",
             type:"DELETE",
             success: function(response){
                 console.log(response);
@@ -79,7 +79,7 @@ function getResId (idItem){
     $.ajax({
 
         dataType: "json",
-        url:"/"+idItem,
+        url:"http://129.151.122.220:8080/api/Reservation//"+idItem,
         type:"GET",
         success: function(response){
             
@@ -114,7 +114,7 @@ $.ajax({
             dataType: "json",
             data:dataTosend,
             contentType:"application/json",
-            url:"",
+            url:"http://129.151.122.220:8080/api/Reservation/",
             type:"PUT",
             success: function(response){
                 console.log(response);

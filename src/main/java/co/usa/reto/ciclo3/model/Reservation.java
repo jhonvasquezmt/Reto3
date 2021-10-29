@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,23 +32,33 @@ public class Reservation implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservation;
     
-    private String startDate;
-    private String devolutionDate;
-    private String date;
+    date String startDate;
+    date String devolutionDate;
+    private String status;
+    
+    @ManyToOne
+    @JoinColumn(name="Cabaña")
+    @JsonIgnoreProperties("reservations")
+    private Cabin cabin;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "Mensajes ")
+    @JsonIgnoreProperties("reservations")
+    public List<Message> messages;
 
     @ManyToOne
     @JoinColumn(name="Cliente")
     @JsonIgnoreProperties("reservations")
     private Client client;
-    @ManyToOne
-    @JoinColumn(name="Cabaña")
-    @JsonIgnoreProperties("reservations")
-    private Cabin cabin;
+    
     @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "reservation")
     @JsonIgnoreProperties("reservation")
     private Score score;
+    
+    simpleDateFormat formato = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    starDate = formato.parse(starDate);
+    devolutionDate = formato.parse(devolutionDate);
 
     public Integer getId() {
         return id;

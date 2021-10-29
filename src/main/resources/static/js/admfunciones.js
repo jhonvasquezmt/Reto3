@@ -11,7 +11,7 @@ $.ajax({
 
             dataType: "json",
             data:data,
-            url:"http://129.151.122.220:8080/api/Admin",
+            url:"http://129.151.122.220:8080/api/Admin/save",
             type:"POST",
             success: function(response){
                 console.log(response);
@@ -27,7 +27,7 @@ function getAdmin (){
     $.ajax({
 
         dataType: "json",
-        url:"http://129.151.122.220:8080/api/Admin",
+        url:"http://129.151.122.220:8080/api/Admin/all",
         type:"GET",
         success: function(response){
             
