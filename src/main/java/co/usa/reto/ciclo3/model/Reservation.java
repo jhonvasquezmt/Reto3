@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-
+import java.util.Date;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -38,9 +38,9 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     
-    private String startDate;
-    private String devolutionDate;
-    private String status;
+    private Date startDate;
+    private Date devolutionDate;
+    private String status = "created";
     
     @ManyToOne
     @JoinColumn(name="Cabaña")
@@ -64,19 +64,19 @@ public class Reservation implements Serializable {
         this.idReservation = idReservation;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getDevolutionDate() {
+    public Date getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setDevolutionDate(String devolutionDate) {
+    public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
     }
 
